@@ -1,6 +1,6 @@
 import Phaser from 'phaser'
 
-import HelloWorldScene from './scenes/HelloWorldScene'
+import GameScene from './scenes/GameScene'
 
 const config = {
   type: Phaser.AUTO,
@@ -14,7 +14,7 @@ const config = {
     }
   },
   title: 'Musical Dungeon Puzzle',
-  scene: [HelloWorldScene]
+  scene: [GameScene]
 }
 
 export default new Phaser.Game(config)
