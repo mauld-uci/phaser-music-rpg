@@ -48,10 +48,34 @@
         "y": 0.5
       }
     },
-    "char_front.png": {
+    "char_back.png": {
       "frame": {
         "x": 0,
         "y": 32,
+        "w": 14,
+        "h": 16
+      },
+      "rotated": false,
+      "trimmed": true,
+      "spriteSourceSize": {
+        "x": 1,
+        "y": 0,
+        "w": 14,
+        "h": 16
+      },
+      "sourceSize": {
+        "w": 16,
+        "h": 16
+      },
+      "pivot": {
+        "x": 0.5,
+        "y": 0.5
+      }
+    },
+    "char_front.png": {
+      "frame": {
+        "x": 0,
+        "y": 48,
         "w": 14,
         "h": 16
       },
@@ -80,7 +104,7 @@
     "format": "RGBA8888",
     "size": {
       "w": 16,
-      "h": 48
+      "h": 64
     },
     "scale": 1
   }
