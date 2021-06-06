@@ -32,37 +32,43 @@ export default class GameScene extends Phaser.Scene {
       classType: Button
     })
 
+    const doors = this.physics.add.staticGroup({
+    })
+
     const objectLayer = map.getObjectLayer('objects')
-    objectLayer.objects.forEach(buttonObj => {
-      console.log(buttonObj)
-      if (buttonObj.name === 'play') {
-        buttons.get(buttonObj.x! + buttonObj.width! * 0.5, buttonObj.y! - buttonObj.height! * 0.5, 'notePlay', 'notePlay.png')
-      } else if (buttonObj.name === 'noteRed') {
-        buttons.get(buttonObj.x! + buttonObj.width! * 0.5, buttonObj.y! - buttonObj.height! * 0.5, 'noteRed', 'noteRed.png')
-      } else if (buttonObj.name === 'noteOrange') {
-        buttons.get(buttonObj.x! + buttonObj.width! * 0.5, buttonObj.y! - buttonObj.height! * 0.5, 'noteOrange', 'noteOrange.png')
-      } else if (buttonObj.name === 'noteYellow') {
-        buttons.get(buttonObj.x! + buttonObj.width! * 0.5, buttonObj.y! - buttonObj.height! * 0.5, 'noteYellow', 'noteYellow.png')
-      } else if (buttonObj.name === 'noteGreen') {
-        buttons.get(buttonObj.x! + buttonObj.width! * 0.5, buttonObj.y! - buttonObj.height! * 0.5, 'noteGreen', 'noteGreen.png')
-      } else if (buttonObj.name === 'noteCyan') {
-        buttons.get(buttonObj.x! + buttonObj.width! * 0.5, buttonObj.y! - buttonObj.height! * 0.5, 'noteCyan', 'noteCyan.png')
-      } else if (buttonObj.name === 'noteBlue') {
-        buttons.get(buttonObj.x! + buttonObj.width! * 0.5, buttonObj.y! - buttonObj.height! * 0.5, 'noteBlue', 'noteBlue.png')
-      } else if (buttonObj.name === 'notePurple') {
-        buttons.get(buttonObj.x! + buttonObj.width! * 0.5, buttonObj.y! - buttonObj.height! * 0.5, 'notePurple', 'notePurple.png')
-      } else if (buttonObj.name === 'notePink') {
-        buttons.get(buttonObj.x! + buttonObj.width! * 0.5, buttonObj.y! - buttonObj.height! * 0.5, 'notePink', 'notePink.png')
+    objectLayer.objects.forEach(obj => {
+      if (obj.type === 'button') {
+        if (obj.name === 'play') {
+          buttons.get(obj.x! + obj.width! * 0.5, obj.y! - obj.height! * 0.5, 'notePlay', 'notePlay.png')
+        } else if (obj.name === 'noteRed') {
+          buttons.get(obj.x! + obj.width! * 0.5, obj.y! - obj.height! * 0.5, 'noteRed', 'noteRed.png')
+        } else if (obj.name === 'noteOrange') {
+          buttons.get(obj.x! + obj.width! * 0.5, obj.y! - obj.height! * 0.5, 'noteOrange', 'noteOrange.png')
+        } else if (obj.name === 'noteYellow') {
+          buttons.get(obj.x! + obj.width! * 0.5, obj.y! - obj.height! * 0.5, 'noteYellow', 'noteYellow.png')
+        } else if (obj.name === 'noteGreen') {
+          buttons.get(obj.x! + obj.width! * 0.5, obj.y! - obj.height! * 0.5, 'noteGreen', 'noteGreen.png')
+        } else if (obj.name === 'noteCyan') {
+          buttons.get(obj.x! + obj.width! * 0.5, obj.y! - obj.height! * 0.5, 'noteCyan', 'noteCyan.png')
+        } else if (obj.name === 'noteBlue') {
+          buttons.get(obj.x! + obj.width! * 0.5, obj.y! - obj.height! * 0.5, 'noteBlue', 'noteBlue.png')
+        } else if (obj.name === 'notePurple') {
+          buttons.get(obj.x! + obj.width! * 0.5, obj.y! - obj.height! * 0.5, 'notePurple', 'notePurple.png')
+        } else if (obj.name === 'notePink') {
+          buttons.get(obj.x! + obj.width! * 0.5, obj.y! - obj.height! * 0.5, 'notePink', 'notePink.png')
+        }
+      } else if (obj.type === 'door') {
+
       }
     })
 
-    this.plink = this.add.plink(119, 217, 'plink')
+    this.plink = this.add.plink(184, 553, 'plink')
     createCharacterAnims(this.anims)
 
     this.cameras.main.startFollow(this.plink, true)
 
     foregroundLayer.setCollisionByProperty({ collides: true });
-    //debugDraw(foregroundLayer, this);
+    debugDraw(foregroundLayer, this);
 
     this.physics.add.collider(this.plink, foregroundLayer);
     this.physics.add.collider(this.plink, buttons, this.handlePlayerButtonCollision, undefined, this);

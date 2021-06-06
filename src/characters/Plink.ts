@@ -12,14 +12,14 @@ export default class Plink extends Phaser.Physics.Arcade.Sprite {
   constructor(scene: Phaser.Scene, x: number, y: number, texture: string, frame?: string | number) {
     super(scene, x, y, texture, frame)
 
-    this.anims.play('plink_down_idle')
+    //this.anims.play('plink_down')
   }
 
   update(cursors: Phaser.Types.Input.Keyboard.CursorKeys) {
     if (!cursors) {
       return
     }
-    const speed = 80
+    const speed = 100
 
     if (cursors.left?.isDown) {
       this.anims.play('plink_left')
@@ -46,6 +46,8 @@ Phaser.GameObjects.GameObjectFactory.register('plink', function (this: Phaser.Ga
   this.updateList.add(sprite)
 
   this.scene.physics.world.enableBody(sprite, Phaser.Physics.Arcade.DYNAMIC_BODY)
+
+  sprite.body.setSize(sprite.width * 0.85, sprite.height * 0.85)
 
   return sprite
 })
