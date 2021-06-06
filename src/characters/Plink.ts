@@ -21,16 +21,28 @@ export default class Plink extends Phaser.Physics.Arcade.Sprite {
     }
     const speed = 100
 
-    if (cursors.left?.isDown) {
+    if (cursors.up?.isDown && cursors.left?.isDown) { //UP LEFT 
+      this.anims.play('plink_left')
+      this.setVelocity(-(speed / 1.414), -(speed / 1.414))
+    } else if (cursors.up?.isDown && cursors.right?.isDown) { //UP RIGHT
+      this.anims.play('plink_right')
+      this.setVelocity((speed / 1.414), -(speed / 1.414))
+    } else if (cursors.down?.isDown && cursors.left?.isDown) { //DOWN LEFT
+      this.anims.play('plink_left')
+      this.setVelocity(-(speed / 1.414), (speed / 1.414))
+    } else if (cursors.down?.isDown && cursors.right?.isDown) { //DOWN RIGHT
+      this.anims.play('plink_right')
+      this.setVelocity((speed / 1.414), (speed / 1.414))
+    } else if (cursors.left?.isDown) { // LEFT
       this.anims.play('plink_left')
       this.setVelocity(-speed, 0)
-    } else if (cursors.right?.isDown) {
+    } else if (cursors.right?.isDown) { // RIGHT
       this.anims.play('plink_right')
       this.setVelocity(speed, 0)
-    } else if (cursors.up?.isDown) {
+    } else if (cursors.up?.isDown) { // UP
       this.anims.play('plink_up')
       this.setVelocity(0, -speed)
-    } else if (cursors.down?.isDown) {
+    } else if (cursors.down?.isDown) { // DOWN
       this.anims.play('plink_down')
       this.setVelocity(0, speed)
     } else {
