@@ -1,4 +1,6 @@
 import Phaser from 'phaser'
+import Button from '../items/Button'
+import { debugDraw } from '../utils/debug'
 
 export default class GameScene extends Phaser.Scene {
   private cursors!: Phaser.Types.Input.Keyboard.CursorKeys
@@ -36,7 +38,9 @@ export default class GameScene extends Phaser.Scene {
     map.createLayer('background', tileset)
     const foregroundLayer = map.createLayer('foreground', tileset)
 
-    const buttons = this.physics.add.staticGroup()
+    const buttons = this.physics.add.staticGroup({
+      classType: Button
+    })
     const objectLayer = map.getObjectLayer('objects')
     objectLayer.objects.forEach(buttonObj => {
       console.log(buttonObj)
@@ -60,15 +64,6 @@ export default class GameScene extends Phaser.Scene {
         buttons.get(buttonObj.x! + buttonObj.width! * 0.5, buttonObj.y! - buttonObj.height! * 0.5, 'notePink', 'notePink.png')
       }
     })
-
-    foregroundLayer.setCollisionByProperty({ collides: true });
-
-    // const debugGraphics = this.add.graphics().setAlpha(0.75);
-    // map.renderDebug(debugGraphics, {
-    //   tileColor: null, // Color of non-colliding tiles
-    //   collidingTileColor: new Phaser.Display.Color(243, 134, 48, 255), // Color of colliding tiles
-    //   faceColor: new Phaser.Display.Color(40, 39, 37, 255) // Color of colliding face edges
-    // });
 
     this.plink = this.physics.add.sprite(119, 217, 'plink', 'char_front.png')
 
@@ -114,7 +109,18 @@ export default class GameScene extends Phaser.Scene {
 
     this.plink.anims.play('plink_down_idle')
 
+    this.cameras.main.startFollow(this.plink, true)
+
+    foregroundLayer.setCollisionByProperty({ collides: true });
+    //debugDraw(foregroundLayer, this);
+
     this.physics.add.collider(this.plink, foregroundLayer);
+    this.physics.add.collider(this.plink, buttons, this.handleButtonCollision, undefined, this);
+  }
+
+  private handleButtonCollision(obj1: Phaser.GameObjects.GameObject, obj2: Phaser.GameObjects.GameObject) {
+    const button = obj2 as Button
+
   }
 
   update(t, dt) {
