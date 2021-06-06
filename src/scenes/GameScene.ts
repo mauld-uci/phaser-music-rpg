@@ -12,7 +12,16 @@ export default class GameScene extends Phaser.Scene {
     this.load.image('spritesheet', 'assets/images/spritesheet.png')
     this.load.tilemapTiledJSON('tilemap', 'assets/maps/stage.json')
 
-    this.load.atlas('plink', 'assets/char/plink.png', 'assets/char/plink.json')
+    this.load.atlas('plink', 'assets/objects/plink.png', 'assets/objects/plink.json')
+    this.load.atlas('notePlay', 'assets/objects/notePlay.png', 'assets/objects/notePlay.json')
+    this.load.atlas('noteRed', 'assets/objects/noteRed.png', 'assets/objects/noteRed.json')
+    this.load.atlas('noteOrange', 'assets/objects/noteOrange.png', 'assets/objects/noteOrange.json')
+    this.load.atlas('noteYellow', 'assets/objects/noteYellow.png', 'assets/objects/noteYellow.json')
+    this.load.atlas('noteGreen', 'assets/objects/noteGreen.png', 'assets/objects/noteGreen.json')
+    this.load.atlas('noteCyan', 'assets/objects/noteCyan.png', 'assets/objects/noteCyan.json')
+    this.load.atlas('noteBlue', 'assets/objects/noteBlue.png', 'assets/objects/noteBlue.json')
+    this.load.atlas('notePurple', 'assets/objects/notePurple.png', 'assets/objects/notePurple.json')
+    this.load.atlas('notePink', 'assets/objects/notePink.png', 'assets/objects/notePink.json')
 
     this.cursors = this.input.keyboard.createCursorKeys()
   }
@@ -25,8 +34,32 @@ export default class GameScene extends Phaser.Scene {
     const tileset = map.addTilesetImage('tiles', 'spritesheet')
 
     map.createLayer('background', tileset)
-    map.createLayer('DEMO', tileset)
     const foregroundLayer = map.createLayer('foreground', tileset)
+
+    const buttons = this.physics.add.staticGroup()
+    const objectLayer = map.getObjectLayer('objects')
+    objectLayer.objects.forEach(buttonObj => {
+      console.log(buttonObj)
+      if (buttonObj.name === 'play') {
+        buttons.get(buttonObj.x! + buttonObj.width! * 0.5, buttonObj.y! - buttonObj.height! * 0.5, 'notePlay', 'notePlay.png')
+      } else if (buttonObj.name === 'noteRed') {
+        buttons.get(buttonObj.x! + buttonObj.width! * 0.5, buttonObj.y! - buttonObj.height! * 0.5, 'noteRed', 'noteRed.png')
+      } else if (buttonObj.name === 'noteOrange') {
+        buttons.get(buttonObj.x! + buttonObj.width! * 0.5, buttonObj.y! - buttonObj.height! * 0.5, 'noteOrange', 'noteOrange.png')
+      } else if (buttonObj.name === 'noteYellow') {
+        buttons.get(buttonObj.x! + buttonObj.width! * 0.5, buttonObj.y! - buttonObj.height! * 0.5, 'noteYellow', 'noteYellow.png')
+      } else if (buttonObj.name === 'noteGreen') {
+        buttons.get(buttonObj.x! + buttonObj.width! * 0.5, buttonObj.y! - buttonObj.height! * 0.5, 'noteGreen', 'noteGreen.png')
+      } else if (buttonObj.name === 'noteCyan') {
+        buttons.get(buttonObj.x! + buttonObj.width! * 0.5, buttonObj.y! - buttonObj.height! * 0.5, 'noteCyan', 'noteCyan.png')
+      } else if (buttonObj.name === 'noteBlue') {
+        buttons.get(buttonObj.x! + buttonObj.width! * 0.5, buttonObj.y! - buttonObj.height! * 0.5, 'noteBlue', 'noteBlue.png')
+      } else if (buttonObj.name === 'notePurple') {
+        buttons.get(buttonObj.x! + buttonObj.width! * 0.5, buttonObj.y! - buttonObj.height! * 0.5, 'notePurple', 'notePurple.png')
+      } else if (buttonObj.name === 'notePink') {
+        buttons.get(buttonObj.x! + buttonObj.width! * 0.5, buttonObj.y! - buttonObj.height! * 0.5, 'notePink', 'notePink.png')
+      }
+    })
 
     foregroundLayer.setCollisionByProperty({ collides: true });
 
@@ -36,8 +69,6 @@ export default class GameScene extends Phaser.Scene {
     //   collidingTileColor: new Phaser.Display.Color(243, 134, 48, 255), // Color of colliding tiles
     //   faceColor: new Phaser.Display.Color(40, 39, 37, 255) // Color of colliding face edges
     // });
-
-    //const spawnPoint = map.findObject("objects", obj => obj.name === "spawn");
 
     this.plink = this.physics.add.sprite(119, 217, 'plink', 'char_front.png')
 
