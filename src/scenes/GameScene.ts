@@ -4,6 +4,7 @@ import { debugDraw } from '../utils/debug'
 
 import '../characters/Plink'
 import Plink from '../characters/Plink'
+import { createCharacterAnims } from '../anims/CharacterAnims'
 
 export default class GameScene extends Phaser.Scene {
   private cursors!: Phaser.Types.Input.Keyboard.CursorKeys
@@ -44,6 +45,7 @@ export default class GameScene extends Phaser.Scene {
     const buttons = this.physics.add.staticGroup({
       classType: Button
     })
+
     const objectLayer = map.getObjectLayer('objects')
     objectLayer.objects.forEach(buttonObj => {
       console.log(buttonObj)
@@ -69,48 +71,7 @@ export default class GameScene extends Phaser.Scene {
     })
 
     this.plink = this.add.plink(119, 217, 'plink')
-
-    this.anims.create({
-      key: "plink_up_idle",
-      frames: [{ key: 'plink', frame: 'char_back.png' }]
-    })
-
-    this.anims.create({
-      key: "plink_down_idle",
-      frames: [{ key: 'plink', frame: 'char_front.png' }]
-    })
-
-    this.anims.create({
-      key: "plink_up",
-      frames: [{ key: 'plink', frame: 'char_back.png' }] //TO ANIMATE
-    })
-
-    this.anims.create({
-      key: "plink_down",
-      frames: [{ key: 'plink', frame: 'char_front.png' }] //TO ANIMATE
-    })
-
-    this.anims.create({
-      key: "plink_left",
-      frames: [{ key: 'plink', frame: 'char_left.png' }] //TO ANIMATE
-    })
-
-    this.anims.create({
-      key: "plink_left_idle",
-      frames: [{ key: 'plink', frame: 'char_left.png' }]
-    })
-
-    this.anims.create({
-      key: "plink_right",
-      frames: [{ key: 'plink', frame: 'char_right.png' }] //TO ANIMATE
-    })
-
-    this.anims.create({
-      key: "plink_right_idle",
-      frames: [{ key: 'plink', frame: 'char_right.png' }]
-    })
-
-    this.plink.anims.play('plink_down_idle')
+    createCharacterAnims(this.anims)
 
     this.cameras.main.startFollow(this.plink, true)
 
