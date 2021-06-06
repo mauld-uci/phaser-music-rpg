@@ -2,9 +2,12 @@ import Phaser from 'phaser'
 import Button from '../items/Button'
 import { debugDraw } from '../utils/debug'
 
+import '../characters/Plink'
+import Plink from '../characters/Plink'
+
 export default class GameScene extends Phaser.Scene {
   private cursors!: Phaser.Types.Input.Keyboard.CursorKeys
-  private plink!: Phaser.Physics.Arcade.Sprite
+  private plink!: Plink
 
   constructor() {
     super('gamescene')
@@ -65,7 +68,7 @@ export default class GameScene extends Phaser.Scene {
       }
     })
 
-    this.plink = this.physics.add.sprite(119, 217, 'plink', 'char_front.png')
+    this.plink = this.add.plink(119, 217, 'plink')
 
     this.anims.create({
       key: "plink_up_idle",
@@ -115,35 +118,17 @@ export default class GameScene extends Phaser.Scene {
     //debugDraw(foregroundLayer, this);
 
     this.physics.add.collider(this.plink, foregroundLayer);
-    this.physics.add.collider(this.plink, buttons, this.handleButtonCollision, undefined, this);
+    this.physics.add.collider(this.plink, buttons, this.handlePlayerButtonCollision, undefined, this);
   }
 
-  private handleButtonCollision(obj1: Phaser.GameObjects.GameObject, obj2: Phaser.GameObjects.GameObject) {
+  private handlePlayerButtonCollision(obj1: Phaser.GameObjects.GameObject, obj2: Phaser.GameObjects.GameObject) {
     const button = obj2 as Button
 
   }
 
   update(t, dt) {
-    if (!this.cursors || !this.plink) {
-      return
-    }
-
-    const speed = 80;
-
-    if (this.cursors.left?.isDown) {
-      this.plink.anims.play('plink_left')
-      this.plink.setVelocity(-speed, 0)
-    } else if (this.cursors.right?.isDown) {
-      this.plink.anims.play('plink_right')
-      this.plink.setVelocity(speed, 0)
-    } else if (this.cursors.up?.isDown) {
-      this.plink.anims.play('plink_up')
-      this.plink.setVelocity(0, -speed)
-    } else if (this.cursors.down?.isDown) {
-      this.plink.anims.play('plink_down')
-      this.plink.setVelocity(0, speed)
-    } else {
-      this.plink.setVelocity(0, 0)
+    if (this.plink) {
+      this.plink.update(this.cursors)
     }
   }
 }
