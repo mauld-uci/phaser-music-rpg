@@ -60,7 +60,6 @@ export default class Plink extends Phaser.Physics.Arcade.Sprite {
 
     if (Phaser.Input.Keyboard.JustDown(cursors.space!)) {
       if (this.activeButton) {
-        console.log("PRESSING NOTE")
         this.activeButton.press()
       }
     }

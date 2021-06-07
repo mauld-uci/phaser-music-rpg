@@ -2,6 +2,13 @@ import Phaser from 'phaser'
 
 export default class Button extends Phaser.Physics.Arcade.Sprite {
 
+  private _tune1 = [60, 69, 67, 64, 65, 0]
+  private _tune2 = [60, 69, 67, 64, 65, 69, 67, 65, 69, 67, 0]
+  private _tune3 = [60, 69, 67, 64, 65, 69, 67, 65, 69, 67, 67, 69, 65, 64, 65, 64, 65, 69, 67, 65, 0]
+
+  private context
+  private oscillator
+
   constructor(scene: Phaser.Scene, x: number, y: number, texture: string, frame?: string | number) {
     super(scene, x, y, texture, frame)
   }
@@ -51,10 +58,12 @@ export default class Button extends Phaser.Physics.Arcade.Sprite {
       }
       case 'play1': {
         this.anims.play('play_pressed')
+        this.playTune(this._tune1)
         break
       }
       case 'play2': {
         this.anims.play('play_pressed')
+        this.playTune(this._tune2)
         break
       }
       default: {
@@ -62,5 +71,41 @@ export default class Button extends Phaser.Physics.Arcade.Sprite {
       }
     }
     console.log(this.name)
+  }
+
+  private getOrCreateContext() {
+    if (!this.context) {
+      this.context = new AudioContext();
+      this.oscillator = this.context.createOscillator();
+      this.oscillator.start(0)
+    }
+    return this.context;
+  }
+
+  public playSound(value: number) {
+
+  }
+
+  public playTune(tune: Array<number>) {
+    var length: number = 2
+    var eps: number = 0.01
+    var pairs: number[][] = []
+
+    for (var i: number = 0; i < tune.length; ++i) {
+      pairs.push([tune[i], 4])
+    }
+
+    console.log(pairs)
+
+    this.getOrCreateContext()
+    this.oscillator.connect(this.context.destination);
+    let time = this.context.currentTime + eps
+    pairs.forEach(note => {
+      const freq = Math.pow(2, (note[0] - 69) / 12) * 440
+      //console.log(time)
+      this.oscillator.frequency.setTargetAtTime(0, time - eps, 0.001)
+      this.oscillator.frequency.setTargetAtTime(freq, time, 0.001)
+      time += length / note[1]
+    });
   }
 }
