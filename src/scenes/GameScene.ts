@@ -37,6 +37,7 @@ export default class GameScene extends Phaser.Scene {
     })
 
     const doors = this.physics.add.staticGroup({
+      classType: Door
     })
 
     const objectLayer = map.getObjectLayer('objects')
@@ -93,8 +94,9 @@ export default class GameScene extends Phaser.Scene {
   }
 
   private handlePlayerDoorCollision(obj1: Phaser.GameObjects.GameObject, obj2: Phaser.GameObjects.GameObject) {
-    const button = obj2 as Door
-    console.log("Colliding Door")
+    const door = obj2 as Door
+    console.log("Colliding Door: " + door.name)
+    //door.open()
   }
 
   update(t, dt) {
