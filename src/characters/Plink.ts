@@ -1,4 +1,6 @@
 import Phaser from 'phaser'
+import Button from '../items/Button'
+
 
 declare global {
   namespace Phaser.GameObjects {
@@ -9,10 +11,17 @@ declare global {
 }
 
 export default class Plink extends Phaser.Physics.Arcade.Sprite {
+  private _health = 5;
+  private activeButton?: Button
+
   constructor(scene: Phaser.Scene, x: number, y: number, texture: string, frame?: string | number) {
     super(scene, x, y, texture, frame)
 
     //this.anims.play('plink_down')
+  }
+
+  setButton(button: Button) {
+    this.activeButton = button
   }
 
   update(cursors: Phaser.Types.Input.Keyboard.CursorKeys) {
@@ -47,6 +56,17 @@ export default class Plink extends Phaser.Physics.Arcade.Sprite {
       this.setVelocity(0, speed)
     } else {
       this.setVelocity(0, 0)
+    }
+
+    if (Phaser.Input.Keyboard.JustDown(cursors.space!)) {
+      if (this.activeButton) {
+        console.log("PRESSING NOTE")
+        this.activeButton.press()
+      }
+    }
+
+    if (cursors.left?.isDown || cursors.right?.isDown || cursors.up?.isDown || cursors.down?.isDown) {
+      this.activeButton = undefined
     }
   }
 }

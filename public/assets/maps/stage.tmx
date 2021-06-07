@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<map version="1.5" tiledversion="1.6.0" orientation="orthogonal" renderorder="right-down" width="40" height="40" tilewidth="16" tileheight="16" infinite="0" nextlayerid="5" nextobjectid="14">
+<map version="1.5" tiledversion="1.6.0" orientation="orthogonal" renderorder="right-down" width="40" height="40" tilewidth="16" tileheight="16" infinite="0" nextlayerid="5" nextobjectid="23">
  <editorsettings>
   <export target="stage.json" format="json"/>
  </editorsettings>
@@ -255,7 +255,7 @@
 </data>
  </layer>
  <objectgroup id="3" name="objects">
-  <object id="3" name="play" type="button" gid="11" x="175.707" y="464.23" width="16" height="16"/>
+  <object id="3" name="play1" type="button" gid="11" x="175.707" y="464.23" width="16" height="16"/>
   <object id="4" name="noteRed" type="button" gid="17" x="175.707" y="417.183" width="16" height="16"/>
   <object id="5" name="noteOrange" type="button" gid="19" x="223.277" y="416.661" width="16" height="16"/>
   <object id="6" name="noteYellow" type="button" gid="21" x="223.799" y="464.753" width="16" height="16"/>
@@ -266,5 +266,14 @@
   <object id="11" name="notePink" type="button" gid="25" x="126.047" y="417.706" width="16" height="16"/>
   <object id="12" name="door1" type="door" gid="9" x="176.1" y="320.055" width="16" height="16"/>
   <object id="13" name="door2" type="door" gid="9" x="320.318" y="175.867" width="16" height="16"/>
+  <object id="14" name="noteRed" type="button" gid="17" x="111.852" y="111.989" width="16" height="16"/>
+  <object id="15" name="noteOrange" type="button" gid="19" x="144.165" y="145.477" width="16" height="16"/>
+  <object id="16" name="noteYellow" type="button" gid="21" x="208.791" y="145.477" width="16" height="16"/>
+  <object id="17" name="noteGreen" type="button" gid="23" x="239.929" y="111.989" width="16" height="16"/>
+  <object id="18" name="notePink" type="button" gid="25" x="144.752" y="208.341" width="16" height="16"/>
+  <object id="19" name="notePurple" type="button" gid="27" x="110.677" y="240.654" width="16" height="16"/>
+  <object id="20" name="play2" type="button" gid="11" x="176.478" y="176.615" width="16" height="16"/>
+  <object id="21" name="noteBlue" type="button" gid="29" x="208.204" y="208.341" width="16" height="16"/>
+  <object id="22" name="noteCyan" type="button" gid="31" x="240.517" y="241.241" width="16" height="16"/>
  </objectgroup>
 </map>

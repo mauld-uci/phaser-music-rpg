@@ -5,6 +5,7 @@ import { debugDraw } from '../utils/debug'
 import '../characters/Plink'
 import Plink from '../characters/Plink'
 import { createCharacterAnims } from '../anims/CharacterAnims'
+import { createButtonAnims } from '../anims/ButtonAnims'
 
 export default class GameScene extends Phaser.Scene {
   private cursors!: Phaser.Types.Input.Keyboard.CursorKeys
@@ -38,8 +39,10 @@ export default class GameScene extends Phaser.Scene {
     const objectLayer = map.getObjectLayer('objects')
     objectLayer.objects.forEach(obj => {
       if (obj.type === 'button') {
-        if (obj.name === 'play') {
-          buttons.get(obj.x! + obj.width! * 0.5, obj.y! - obj.height! * 0.5, 'notePlay', 'notePlay.png').setName('play')
+        if (obj.name === 'play1') {
+          buttons.get(obj.x! + obj.width! * 0.5, obj.y! - obj.height! * 0.5, 'notePlay', 'notePlay.png').setName('play1')
+        } else if (obj.name === 'play2') {
+          buttons.get(obj.x! + obj.width! * 0.5, obj.y! - obj.height! * 0.5, 'notePlay', 'notePlay.png').setName('play2')
         } else if (obj.name === 'noteRed') {
           buttons.get(obj.x! + obj.width! * 0.5, obj.y! - obj.height! * 0.5, 'noteRed', 'noteRed.png').setName('red')
         } else if (obj.name === 'noteOrange') {
@@ -64,24 +67,27 @@ export default class GameScene extends Phaser.Scene {
 
     this.plink = this.add.plink(184, 553, 'plink')
     createCharacterAnims(this.anims)
+    createButtonAnims(this.anims)
 
     this.cameras.main.startFollow(this.plink, true)
 
     foregroundLayer.setCollisionByProperty({ collides: true });
-    debugDraw(foregroundLayer, this);
+    //debugDraw(foregroundLayer, this);
 
     this.physics.add.collider(this.plink, foregroundLayer);
-    this.physics.add.overlap(this.plink, buttons, this.handlePlayerButtonCollision, undefined, this);
+    this.physics.add.collider(this.plink, buttons, this.handlePlayerButtonCollision, undefined, this);
   }
 
   private handlePlayerButtonCollision(obj1: Phaser.GameObjects.GameObject, obj2: Phaser.GameObjects.GameObject) {
     const button = obj2 as Button
-    button.press()
+
+    this.plink.setButton(button)
   }
 
   update(t, dt) {
     if (this.plink) {
       this.plink.update(this.cursors)
     }
+
   }
 }

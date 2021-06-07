@@ -5,14 +5,14 @@ import Preloader from './scenes/Preloader'
 
 const config = {
   type: Phaser.AUTO,
-  width: 240,
-  height: 240,
+  width: 300,
+  height: 300,
   pixelArt: true,
   physics: {
     default: 'arcade',
     arcade: {
       gravity: { y: 0 },
-      debug: true
+      debug: false
     }
   },
   title: 'Musical Dungeon Puzzle',
