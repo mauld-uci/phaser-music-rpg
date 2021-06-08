@@ -22,6 +22,8 @@ export default class GameScene extends Phaser.Scene {
   private tune1Progress = [-1, -1, -1, -1, -1]
   private tune2Progress = [-1, -1, -1, -1, -1, -1, -1, -1, -1, -1]
 
+  private successSound
+
   constructor() {
     super('gamescene')
   }
@@ -97,14 +99,18 @@ export default class GameScene extends Phaser.Scene {
 
     sceneEvents.on('note-played', this.handleNotePuzzle, this)
     sceneEvents.on('door-open', this.handleDoorUnlock, this)
+
+    this.successSound = this.sound.add('success');
   }
 
   private handleDoorUnlock(doorNum: number) {
     console.log("UNLOCKING: ", doorNum)
     if (doorNum === 1) {
       this.door1.open()
+      this.successSound.play()
     } else if (doorNum === 2) {
       this.door2.open()
+      this.successSound.play()
     }
   }
 
@@ -132,6 +138,7 @@ export default class GameScene extends Phaser.Scene {
     }
     if (this.numArraysEqual(this.tune2Progress, this.tune2Answer)) {
       sceneEvents.emit('door-open', 2)
+      this.celebration()
     }
   }
 
@@ -152,6 +159,52 @@ export default class GameScene extends Phaser.Scene {
       progress[i] = progress[i + 1]
     }
     progress[progress.length - 1] = num
+  }
+
+  private celebration() {
+    let x = 472
+    let y = 88
+
+    this.add.particles('particleRed').createEmitter({
+      x: x,
+      y: y,
+      speed: { min: -200, max: 200 },
+      angle: { min: 225, max: 315 },
+      scale: { start: 0.7, end: 0 },
+      //active: false,
+      lifespan: 1000,
+      gravityY: 500
+    });
+    this.add.particles('particleBlue').createEmitter({
+      x: x,
+      y: y,
+      speed: { min: -200, max: 200 },
+      angle: { min: 225, max: 315 },
+      scale: { start: 0.7, end: 0 },
+      //active: false,
+      lifespan: 1000,
+      gravityY: 500
+    });
+    this.add.particles('particleGreen').createEmitter({
+      x: x,
+      y: y,
+      speed: { min: -200, max: 200 },
+      angle: { min: 225, max: 315 },
+      scale: { start: 0.7, end: 0 },
+      //active: false,
+      lifespan: 1000,
+      gravityY: 500
+    });
+    this.add.particles('particleYellow').createEmitter({
+      x: x,
+      y: y,
+      speed: { min: -200, max: 200 },
+      angle: { min: 225, max: 315 },
+      scale: { start: 0.7, end: 0 },
+      //active: false,
+      lifespan: 1000,
+      gravityY: 500
+    });
   }
 
   update(t, dt) {

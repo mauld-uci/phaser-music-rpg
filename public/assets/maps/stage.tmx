@@ -1,10 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<map version="1.5" tiledversion="1.6.0" orientation="orthogonal" renderorder="right-down" width="40" height="40" tilewidth="16" tileheight="16" infinite="0" nextlayerid="5" nextobjectid="23">
+<map version="1.5" tiledversion="1.6.0" orientation="orthogonal" renderorder="right-down" width="15" height="15" tilewidth="16" tileheight="16" infinite="0" nextlayerid="4" nextobjectid="2">
  <editorsettings>
   <export target="stage.json" format="json"/>
  </editorsettings>
- <tileset firstgid="1" name="tiles" tilewidth="16" tileheight="16" tilecount="64" columns="8">
-  <image source="../images/spritesheet.png" width="128" height="128"/>
+ <tileset firstgid="1" name="tiles" tilewidth="16" tileheight="16" tilecount="32" columns="8">
+  <image source="../images/spritesheet.png" width="128" height="64"/>
   <tile id="0">
    <properties>
     <property name="collides" type="bool" value="false"/>
@@ -27,22 +27,22 @@
   </tile>
   <tile id="4">
    <properties>
-    <property name="collides" type="bool" value="true"/>
+    <property name="collides" type="bool" value="false"/>
    </properties>
   </tile>
   <tile id="5">
    <properties>
-    <property name="collides" type="bool" value="true"/>
+    <property name="collides" type="bool" value="false"/>
    </properties>
   </tile>
   <tile id="6">
    <properties>
-    <property name="collides" type="bool" value="true"/>
+    <property name="collides" type="bool" value="false"/>
    </properties>
   </tile>
   <tile id="7">
    <properties>
-    <property name="collides" type="bool" value="true"/>
+    <property name="collides" type="bool" value="false"/>
    </properties>
   </tile>
   <tile id="8">
@@ -67,12 +67,12 @@
   </tile>
   <tile id="12">
    <properties>
-    <property name="collides" type="bool" value="true"/>
+    <property name="collides" type="bool" value="false"/>
    </properties>
   </tile>
   <tile id="13">
    <properties>
-    <property name="collides" type="bool" value="true"/>
+    <property name="collides" type="bool" value="false"/>
    </properties>
   </tile>
   <tile id="14">
@@ -165,275 +165,46 @@
     <property name="collides" type="bool" value="false"/>
    </properties>
   </tile>
-  <tile id="32">
-   <properties>
-    <property name="collides" type="bool" value="true"/>
-   </properties>
-  </tile>
-  <tile id="33">
-   <properties>
-    <property name="collides" type="bool" value="true"/>
-   </properties>
-  </tile>
-  <tile id="34">
-   <properties>
-    <property name="collides" type="bool" value="true"/>
-   </properties>
-  </tile>
-  <tile id="35">
-   <properties>
-    <property name="collides" type="bool" value="true"/>
-   </properties>
-  </tile>
-  <tile id="36">
-   <properties>
-    <property name="collides" type="bool" value="true"/>
-   </properties>
-  </tile>
-  <tile id="37">
-   <properties>
-    <property name="collides" type="bool" value="false"/>
-   </properties>
-  </tile>
-  <tile id="38">
-   <properties>
-    <property name="collides" type="bool" value="false"/>
-   </properties>
-  </tile>
-  <tile id="39">
-   <properties>
-    <property name="collides" type="bool" value="false"/>
-   </properties>
-  </tile>
-  <tile id="40">
-   <properties>
-    <property name="collides" type="bool" value="true"/>
-   </properties>
-  </tile>
-  <tile id="41">
-   <properties>
-    <property name="collides" type="bool" value="true"/>
-   </properties>
-  </tile>
-  <tile id="42">
-   <properties>
-    <property name="collides" type="bool" value="false"/>
-   </properties>
-  </tile>
-  <tile id="43">
-   <properties>
-    <property name="collides" type="bool" value="false"/>
-   </properties>
-  </tile>
-  <tile id="44">
-   <properties>
-    <property name="collides" type="bool" value="false"/>
-   </properties>
-  </tile>
-  <tile id="45">
-   <properties>
-    <property name="collides" type="bool" value="false"/>
-   </properties>
-  </tile>
-  <tile id="46">
-   <properties>
-    <property name="collides" type="bool" value="false"/>
-   </properties>
-  </tile>
-  <tile id="47">
-   <properties>
-    <property name="collides" type="bool" value="false"/>
-   </properties>
-  </tile>
-  <tile id="48">
-   <properties>
-    <property name="collides" type="bool" value="false"/>
-   </properties>
-  </tile>
-  <tile id="49">
-   <properties>
-    <property name="collides" type="bool" value="false"/>
-   </properties>
-  </tile>
-  <tile id="50">
-   <properties>
-    <property name="collides" type="bool" value="false"/>
-   </properties>
-  </tile>
-  <tile id="51">
-   <properties>
-    <property name="collides" type="bool" value="false"/>
-   </properties>
-  </tile>
-  <tile id="52">
-   <properties>
-    <property name="collides" type="bool" value="false"/>
-   </properties>
-  </tile>
-  <tile id="53">
-   <properties>
-    <property name="collides" type="bool" value="false"/>
-   </properties>
-  </tile>
-  <tile id="54">
-   <properties>
-    <property name="collides" type="bool" value="false"/>
-   </properties>
-  </tile>
-  <tile id="55">
-   <properties>
-    <property name="collides" type="bool" value="false"/>
-   </properties>
-  </tile>
-  <tile id="56">
-   <properties>
-    <property name="collides" type="bool" value="false"/>
-   </properties>
-  </tile>
-  <tile id="57">
-   <properties>
-    <property name="collides" type="bool" value="false"/>
-   </properties>
-  </tile>
-  <tile id="58">
-   <properties>
-    <property name="collides" type="bool" value="false"/>
-   </properties>
-  </tile>
-  <tile id="59">
-   <properties>
-    <property name="collides" type="bool" value="false"/>
-   </properties>
-  </tile>
-  <tile id="60">
-   <properties>
-    <property name="collides" type="bool" value="false"/>
-   </properties>
-  </tile>
-  <tile id="61">
-   <properties>
-    <property name="collides" type="bool" value="false"/>
-   </properties>
-  </tile>
-  <tile id="62">
-   <properties>
-    <property name="collides" type="bool" value="false"/>
-   </properties>
-  </tile>
-  <tile id="63">
-   <properties>
-    <property name="collides" type="bool" value="false"/>
-   </properties>
-  </tile>
  </tileset>
- <layer id="1" name="background" width="40" height="40">
+ <layer id="1" name="background" width="15" height="15">
   <data encoding="csv">
-1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,
-1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,
-1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,
-1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,
-1,1,1,1,1,1,1,1,15,1,16,1,1,1,16,16,16,1,1,1,1,1,1,1,1,16,16,1,1,1,1,1,16,16,16,1,1,1,1,1,
-1,1,1,1,1,1,1,16,16,1,1,1,15,1,1,1,15,1,1,1,1,1,1,1,15,1,1,16,16,16,1,1,1,1,1,1,1,1,1,1,
-1,1,1,1,1,1,16,16,1,1,16,16,16,1,1,16,16,1,1,1,1,1,1,1,1,1,1,1,1,1,1,15,1,16,16,1,1,1,1,1,
-1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,15,1,1,1,15,1,1,1,1,1,1,1,1,1,
-1,1,1,1,1,1,1,15,1,1,1,1,1,1,15,1,1,1,1,1,1,1,1,1,1,1,1,1,1,16,16,16,16,1,15,1,1,1,1,1,
-1,1,1,1,1,1,1,1,1,16,1,1,16,16,16,1,1,16,1,1,15,16,16,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,
-1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,16,16,16,1,1,16,16,1,1,16,16,16,1,1,1,1,
-1,1,1,1,1,1,16,16,16,15,1,1,1,1,1,1,1,1,1,16,16,16,15,1,1,1,1,1,1,1,15,1,1,1,1,1,1,1,1,1,
-1,1,1,1,1,15,1,1,1,15,1,16,16,1,1,1,1,15,1,1,1,1,1,1,1,1,1,1,16,16,16,1,1,1,1,1,1,1,1,1,
-1,1,1,1,1,1,1,1,1,1,1,1,1,1,16,16,16,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,15,1,1,1,1,1,
-1,1,1,1,1,1,1,1,1,1,1,1,1,15,1,1,1,1,1,1,1,1,1,1,15,1,1,1,1,1,1,1,1,16,16,16,1,1,1,1,
-1,1,1,1,1,1,16,16,16,1,1,1,16,16,16,1,1,1,1,1,1,1,1,1,1,16,16,15,1,15,1,1,1,1,1,15,1,1,1,1,
-1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,16,16,1,1,1,1,1,1,1,16,16,1,1,16,16,16,16,16,16,16,1,1,1,1,1,
-1,1,1,1,1,1,1,1,1,15,16,16,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,
-1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,
-1,1,1,1,1,1,1,1,1,1,1,16,16,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,
-1,1,1,1,1,1,1,1,1,1,1,1,15,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,
-1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,16,16,16,16,1,1,1,1,1,
-1,1,1,1,1,1,16,16,1,1,1,1,1,1,1,15,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,
-1,1,1,1,1,1,1,1,1,1,16,16,16,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,
-1,1,1,1,1,15,15,1,16,1,1,1,1,1,15,15,16,16,1,1,16,16,1,1,1,1,16,16,16,16,16,16,16,1,1,1,1,1,1,1,
-1,1,1,1,1,1,1,1,1,1,1,1,16,16,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,
-1,1,1,1,1,1,1,1,1,1,15,15,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,
-1,1,1,1,1,1,1,16,16,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,16,16,16,16,16,16,1,1,1,1,1,1,1,1,1,
-1,1,1,1,1,1,1,1,15,1,1,1,1,1,16,1,1,1,1,1,1,1,1,1,1,16,1,1,1,1,1,1,1,1,1,1,1,1,1,1,
-1,1,1,1,1,1,1,1,1,16,16,16,1,1,16,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,
-1,1,1,1,1,16,16,1,1,1,1,1,1,1,15,15,1,1,1,1,1,1,16,16,16,16,1,1,1,1,1,1,1,1,1,1,1,1,1,1,
-1,1,1,1,1,1,1,1,15,1,15,1,1,16,16,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,
-1,1,1,1,1,1,1,1,1,16,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,
-1,1,1,1,1,1,1,16,16,16,1,1,1,15,15,1,15,1,1,1,1,1,16,16,16,16,1,1,1,1,16,16,16,16,16,1,1,1,1,1,
-1,1,1,1,1,1,1,15,1,1,1,2,1,1,16,16,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,
-1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,
-1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,
-1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,
-1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,
-1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1
+1,1,1,1,1,1,1,2,1,1,1,1,1,1,1,
+1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,
+1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,
+1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,
+1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,
+1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,
+1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,
+1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,
+1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,
+1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,
+1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,
+1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,
+1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,
+1,1,1,1,1,1,1,2,1,1,1,1,1,1,1,
+1,1,1,1,1,1,1,1,1,1,1,1,1,1,1
 </data>
  </layer>
- <layer id="2" name="foreground" width="40" height="40">
+ <layer id="2" name="foreground" width="15" height="15">
   <data encoding="csv">
-3,3,3,4,3,3,3,3,5,5,5,3,3,42,0,0,33,42,0,0,0,0,0,0,13,3,3,4,3,3,3,14,0,0,0,0,0,0,0,13,
-5,3,3,4,4,3,3,3,5,3,3,42,0,0,0,0,0,0,0,0,0,13,4,4,4,3,3,3,3,3,4,3,14,0,0,0,0,0,0,33,
-33,3,5,8,3,4,3,3,3,3,14,0,41,3,34,0,13,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,34,0,0,0,0,0,
-0,3,3,3,3,3,3,3,3,3,3,4,4,3,3,3,4,5,3,3,3,3,5,5,4,4,4,3,5,5,5,3,4,4,3,3,14,0,0,0,
-0,33,3,3,3,42,0,0,0,0,0,0,0,0,0,0,0,33,3,3,4,3,3,42,0,0,0,0,0,0,0,0,0,0,0,33,3,14,0,0,
-14,0,33,3,4,0,0,0,0,0,0,0,0,0,0,0,0,0,4,4,3,3,3,0,0,0,0,0,0,0,0,0,0,0,0,0,4,3,34,0,
-3,34,41,3,4,0,0,0,0,0,0,0,0,0,0,0,0,0,3,3,4,4,3,0,0,0,0,0,35,36,37,0,0,0,0,0,4,3,14,0,
-4,14,0,33,4,0,0,0,0,0,0,0,0,0,0,0,0,0,3,8,4,8,3,0,0,0,0,0,0,0,0,0,0,0,0,0,3,3,3,14,
-4,3,14,41,4,0,0,0,0,0,0,0,0,0,0,0,0,0,3,3,3,3,3,0,0,0,0,0,35,36,37,0,0,0,0,0,3,8,3,3,
-3,4,3,5,3,0,0,0,0,0,0,0,0,0,0,0,0,0,6,6,6,6,6,0,0,0,0,0,0,0,0,0,0,0,0,0,5,3,3,4,
-5,8,3,3,3,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,35,36,37,0,0,0,0,0,3,3,3,3,
-5,5,5,3,3,0,0,0,0,0,0,0,0,0,0,0,0,0,6,6,6,6,6,0,0,0,0,0,0,0,0,0,0,0,0,0,4,3,3,3,
-41,3,3,5,3,0,0,0,0,0,0,0,0,0,0,0,0,0,3,3,3,3,3,0,0,0,0,0,35,36,37,0,0,0,0,0,4,8,3,14,
-0,41,3,3,3,0,0,0,0,0,0,0,0,0,0,0,0,0,3,8,3,8,3,0,0,0,0,0,0,0,0,0,0,0,0,0,3,3,14,0,
-0,0,13,3,3,0,0,0,0,0,0,0,0,0,0,0,0,0,3,3,5,3,3,0,0,0,0,0,35,36,37,0,0,0,0,0,5,3,34,0,
-0,0,41,3,4,0,0,0,0,0,0,0,0,0,0,0,0,0,5,3,4,3,3,0,0,0,0,0,0,0,0,0,0,0,0,0,3,3,14,0,
-14,0,0,13,3,34,0,0,0,0,0,0,0,0,0,0,0,41,5,3,3,3,4,34,0,0,0,0,0,0,0,0,0,0,0,41,3,3,34,0,
-3,42,0,13,3,4,3,3,4,3,7,0,7,3,3,3,4,5,5,4,3,3,3,5,3,3,5,4,4,3,3,4,3,5,4,4,3,14,0,0,
-4,3,3,3,4,5,4,3,8,4,7,0,7,4,8,3,3,3,5,3,3,5,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,34,0,0,
-14,0,0,13,5,5,4,4,3,5,7,0,7,4,3,5,3,5,3,3,8,5,3,5,3,3,3,3,3,42,0,0,0,0,0,0,0,0,0,0,
-3,42,0,41,5,3,3,3,8,3,7,0,7,3,8,5,3,3,3,5,4,5,4,4,3,3,42,0,0,0,0,0,0,0,0,0,0,0,0,0,
-42,0,0,13,3,4,4,3,4,4,7,0,7,4,4,3,4,3,4,3,3,3,3,3,3,42,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
-0,0,13,3,3,42,0,0,0,0,0,0,0,0,0,0,0,33,4,3,3,3,3,3,42,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
-0,0,41,3,5,0,0,0,0,0,0,0,0,0,0,0,0,0,4,3,3,42,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
-0,0,13,3,4,0,0,0,0,0,0,0,0,0,0,0,0,0,3,14,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
-0,0,13,3,4,0,0,0,0,0,0,0,0,0,0,0,0,0,4,3,14,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
-0,0,41,3,3,0,0,0,0,0,0,0,0,0,0,0,0,0,4,3,14,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
-0,13,3,5,3,0,0,0,0,0,0,0,0,0,0,0,0,0,4,3,42,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
-0,13,5,5,3,0,0,0,0,0,0,0,0,0,0,0,0,0,5,14,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
-0,13,3,8,4,0,0,0,0,0,0,0,0,0,0,0,0,0,3,14,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
-0,41,3,3,4,0,0,0,0,0,0,0,0,0,0,0,0,0,3,14,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
-0,0,13,3,3,0,0,0,0,0,0,0,0,0,0,0,0,0,3,14,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
-34,0,41,3,5,0,0,0,0,0,0,0,0,0,0,0,0,0,4,3,14,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
-3,34,0,13,5,0,0,0,0,0,0,0,0,0,0,0,0,0,4,3,14,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
-42,0,0,13,4,34,0,0,0,0,0,0,0,0,0,0,0,41,4,3,42,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
-0,0,13,3,3,3,3,4,4,4,3,3,4,5,5,3,3,4,3,42,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
-0,0,41,3,5,3,5,3,3,3,3,3,14,13,3,8,3,42,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
-0,0,0,0,0,41,3,3,42,0,0,13,3,5,4,3,14,0,0,0,0,0,0,13,3,3,14,0,0,0,0,0,0,0,0,0,0,0,0,0,
-34,0,0,0,0,0,0,0,0,0,13,5,3,3,42,0,33,42,0,0,33,3,3,3,8,3,3,14,0,0,0,0,0,0,0,0,0,0,0,0,
-3,3,3,42,0,0,0,0,0,0,13,3,14,0,0,0,0,0,0,0,0,13,3,3,3,3,3,3,14,0,0,0,0,0,0,0,0,0,0,0
+3,4,4,3,4,4,3,9,3,4,4,3,4,3,4,
+3,4,0,0,0,0,0,0,0,0,0,0,0,3,4,
+3,0,0,0,0,0,0,0,0,0,0,0,0,0,4,
+4,0,0,0,0,0,0,0,0,0,0,0,0,0,3,
+4,0,0,0,0,0,0,0,0,0,0,0,0,0,4,
+3,0,0,0,0,0,0,0,0,0,0,0,0,0,4,
+3,0,0,0,0,0,0,0,0,0,0,0,0,0,4,
+3,0,0,0,0,0,0,0,0,0,0,0,0,0,4,
+4,0,0,0,0,0,0,0,0,0,0,0,0,0,3,
+4,0,0,0,0,0,0,0,0,0,0,0,0,0,3,
+3,0,0,0,0,0,0,0,0,0,0,0,0,0,3,
+3,0,0,0,0,0,0,0,0,0,0,0,0,0,4,
+4,0,0,0,0,0,0,0,0,0,0,0,0,0,4,
+4,4,0,0,0,0,0,0,0,0,0,0,0,4,4,
+3,3,3,4,4,4,3,3,4,4,3,3,3,4,3
 </data>
  </layer>
  <objectgroup id="3" name="objects">
-  <object id="3" name="play1" type="button" gid="11" x="175.707" y="464.23" width="16" height="16"/>
-  <object id="4" name="noteRed" type="button" gid="17" x="175.707" y="417.183" width="16" height="16"/>
-  <object id="5" name="noteOrange" type="button" gid="19" x="223.277" y="416.661" width="16" height="16"/>
-  <object id="6" name="noteYellow" type="button" gid="21" x="223.799" y="464.753" width="16" height="16"/>
-  <object id="7" name="noteGreen" type="button" gid="23" x="223.799" y="512.845" width="16" height="16"/>
-  <object id="8" name="noteCyan" type="button" gid="31" x="175.185" y="512.845" width="16" height="16"/>
-  <object id="9" name="noteBlue" type="button" gid="29" x="127.093" y="511.799" width="16" height="16"/>
-  <object id="10" name="notePurple" type="button" gid="27" x="127.615" y="465.798" width="16" height="16"/>
-  <object id="11" name="notePink" type="button" gid="25" x="126.047" y="417.706" width="16" height="16"/>
-  <object id="12" name="door1" type="door" gid="9" x="176.1" y="320.055" width="16" height="16"/>
-  <object id="13" name="door2" type="door" gid="9" x="320.318" y="175.867" width="16" height="16"/>
-  <object id="14" name="noteRed" type="button" gid="17" x="111.852" y="111.989" width="16" height="16"/>
-  <object id="15" name="noteOrange" type="button" gid="19" x="144.165" y="145.477" width="16" height="16"/>
-  <object id="16" name="noteYellow" type="button" gid="21" x="208.791" y="145.477" width="16" height="16"/>
-  <object id="17" name="noteGreen" type="button" gid="23" x="239.929" y="111.989" width="16" height="16"/>
-  <object id="18" name="notePink" type="button" gid="25" x="144.752" y="208.341" width="16" height="16"/>
-  <object id="19" name="notePurple" type="button" gid="27" x="110.677" y="240.654" width="16" height="16"/>
-  <object id="20" name="play2" type="button" gid="11" x="176.478" y="176.615" width="16" height="16"/>
-  <object id="21" name="noteBlue" type="button" gid="29" x="208.204" y="208.341" width="16" height="16"/>
-  <object id="22" name="noteCyan" type="button" gid="31" x="240.517" y="241.241" width="16" height="16"/>
+  <object id="1" gid="7" x="112.916" y="224.697" width="16" height="16"/>
  </objectgroup>
 </map>
