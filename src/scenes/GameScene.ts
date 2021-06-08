@@ -13,6 +13,8 @@ import { sceneEvents } from '../events/EventsCenter'
 export default class GameScene extends Phaser.Scene {
   private cursors!: Phaser.Types.Input.Keyboard.CursorKeys
   private plink!: Plink
+  private door1!: Door
+  private door2!: Door
 
   private tune1Answer = [60, 69, 67, 64, 65]
   private tune2Answer = [60, 69, 67, 64, 65, 69, 67, 65, 69, 67]
@@ -72,9 +74,9 @@ export default class GameScene extends Phaser.Scene {
         }
       } else if (obj.type === 'door') {
         if (obj.name === 'door1') {
-          doors.get(obj.x! + obj.width! * 0.5, obj.y! - obj.height! * 0.5, 'door', 'doorClosed.png').setName('door1')
+          this.door1 = doors.get(obj.x! + obj.width! * 0.5, obj.y! - obj.height! * 0.5, 'door', 'doorClosed.png').setName('door1')
         } else if (obj.name === 'door2') {
-          doors.get(obj.x! + obj.width! * 0.5, obj.y! - obj.height! * 0.5, 'door', 'doorClosed.png').setName('door2')
+          this.door2 = doors.get(obj.x! + obj.width! * 0.5, obj.y! - obj.height! * 0.5, 'door', 'doorClosed.png').setName('door2')
         }
       }
     })
@@ -94,6 +96,16 @@ export default class GameScene extends Phaser.Scene {
     this.physics.add.collider(this.plink, doors, this.handlePlayerDoorCollision, undefined, this);
 
     sceneEvents.on('note-played', this.handleNotePuzzle, this)
+    sceneEvents.on('door-open', this.handleDoorUnlock, this)
+  }
+
+  private handleDoorUnlock(doorNum: number) {
+    console.log("UNLOCKING: ", doorNum)
+    if (doorNum === 1) {
+      this.door1.open()
+    } else if (doorNum === 2) {
+      this.door2.open()
+    }
   }
 
   private handlePlayerButtonCollision(obj1: Phaser.GameObjects.GameObject, obj2: Phaser.GameObjects.GameObject) {
@@ -104,22 +116,22 @@ export default class GameScene extends Phaser.Scene {
   private handlePlayerDoorCollision(obj1: Phaser.GameObjects.GameObject, obj2: Phaser.GameObjects.GameObject) {
     const door = obj2 as Door
     console.log("Colliding Door: " + door.name)
-    door.open()
+    //door.open()
   }
 
   private handleNotePuzzle(note: number) {
     //console.log("note: " + note)
     this.addToPuzzle(this.tune1Progress, note)
-    console.log("T1: " + this.tune1Progress)
+    //console.log("T1: " + this.tune1Progress)
 
     this.addToPuzzle(this.tune2Progress, note)
-    console.log("T2: " + this.tune2Progress)
+    //console.log("T2: " + this.tune2Progress)
 
     if (this.numArraysEqual(this.tune1Progress, this.tune1Answer)) {
-      console.log("DOOR 1 OPEN")
+      sceneEvents.emit('door-open', 1)
     }
     if (this.numArraysEqual(this.tune2Progress, this.tune2Answer)) {
-      console.log("DOOR 2 OPEN")
+      sceneEvents.emit('door-open', 2)
     }
   }
 
