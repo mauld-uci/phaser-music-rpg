@@ -1,6 +1,6 @@
 import Phaser from 'phaser'
 import Button from '../items/Button'
-
+import { sceneEvents } from '../events/EventsCenter'
 
 declare global {
   namespace Phaser.GameObjects {
@@ -60,7 +60,7 @@ export default class Plink extends Phaser.Physics.Arcade.Sprite {
 
     if (Phaser.Input.Keyboard.JustDown(cursors.space!)) {
       if (this.activeButton) {
-        this.activeButton.press()
+        sceneEvents.emit('note-played', this.activeButton.press())
       }
     }
 

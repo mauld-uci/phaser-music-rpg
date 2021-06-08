@@ -8,11 +8,17 @@ import Plink from '../characters/Plink'
 import { createCharacterAnims } from '../anims/CharacterAnims'
 import { createButtonAnims } from '../anims/ButtonAnims'
 import { createDoorAnims } from '../anims/DoorAnims'
-
+import { sceneEvents } from '../events/EventsCenter'
 
 export default class GameScene extends Phaser.Scene {
   private cursors!: Phaser.Types.Input.Keyboard.CursorKeys
   private plink!: Plink
+
+  private tune1Answer = [60, 69, 67, 64, 65]
+  private tune2Answer = [60, 69, 67, 64, 65, 69, 67, 65, 69, 67]
+
+  private tune1Progress = [-1, -1, -1, -1, -1]
+  private tune2Progress = [-1, -1, -1, -1, -1, -1, -1, -1, -1, -1]
 
   constructor() {
     super('gamescene')
@@ -86,6 +92,8 @@ export default class GameScene extends Phaser.Scene {
     this.physics.add.collider(this.plink, foregroundLayer);
     this.physics.add.collider(this.plink, buttons, this.handlePlayerButtonCollision, undefined, this);
     this.physics.add.collider(this.plink, doors, this.handlePlayerDoorCollision, undefined, this);
+
+    sceneEvents.on('note-played', this.handleNotePuzzle, this)
   }
 
   private handlePlayerButtonCollision(obj1: Phaser.GameObjects.GameObject, obj2: Phaser.GameObjects.GameObject) {
@@ -96,13 +104,50 @@ export default class GameScene extends Phaser.Scene {
   private handlePlayerDoorCollision(obj1: Phaser.GameObjects.GameObject, obj2: Phaser.GameObjects.GameObject) {
     const door = obj2 as Door
     console.log("Colliding Door: " + door.name)
-    //door.open()
+    door.open()
+  }
+
+  private handleNotePuzzle(note: number) {
+    //console.log("note: " + note)
+    this.addToPuzzle(this.tune1Progress, note)
+    console.log("T1: " + this.tune1Progress)
+
+    this.addToPuzzle(this.tune2Progress, note)
+    console.log("T2: " + this.tune2Progress)
+
+    if (this.numArraysEqual(this.tune1Progress, this.tune1Answer)) {
+      console.log("DOOR 1 OPEN")
+    }
+    if (this.numArraysEqual(this.tune2Progress, this.tune2Answer)) {
+      console.log("DOOR 2 OPEN")
+    }
+  }
+
+  private numArraysEqual(arr1: number[], arr2: number[]) {
+    if (arr1.length != arr2.length) {
+      return false
+    }
+    for (let i = 0; i < arr1.length; ++i) {
+      if (arr1[i] != arr2[i]) {
+        return false
+      }
+    }
+    return true
+  }
+
+  private addToPuzzle(progress: number[], num: number) {
+    for (let i = 0; i < progress.length; ++i) {
+      progress[i] = progress[i + 1]
+    }
+    progress[progress.length - 1] = num
   }
 
   update(t, dt) {
     if (this.plink) {
       this.plink.update(this.cursors)
     }
+
+
 
   }
 }

@@ -20,65 +20,64 @@ export default class Button extends Phaser.Physics.Arcade.Sprite {
         note = 60 //C
         this.playSound(note)
         this.anims.play('red_pressed')
-        break
+        return 60
       }
       case 'orange': {
         note = 62 //D
         this.playSound(note)
         this.anims.play('orange_pressed')
-        break
+        return 62
       }
       case 'yellow': {
         note = 64 //E
         this.playSound(note)
         this.anims.play('yellow_pressed')
-        break
+        return 64
       }
       case 'green': {
         note = 65 //F
         this.playSound(note)
         this.anims.play('green_pressed')
-        break
+        return 65
       }
       case 'cyan': {
         note = 67 //G
         this.playSound(note)
         this.anims.play('cyan_pressed')
-        break
+        return 67
       }
       case 'blue': {
         note = 69 //A
         this.playSound(note)
         this.anims.play('blue_pressed')
-        break
+        return 69
       }
       case 'purple': {
         note = 71 //B
         this.playSound(note)
         this.anims.play('purple_pressed')
-        break
+        return 71
       }
       case 'pink': {
         note = 72 //C 
         this.playSound(note)
         this.anims.play('pink_pressed')
-        break
+        return 72
       }
       case 'play1': {
         this.anims.play('play_pressed')
         this.playTune(this._tune1)
-        break
+        return -1
       }
       case 'play2': {
         this.anims.play('play_pressed')
         this.playTune(this._tune2)
-        break
+        return -1
       }
       default: {
-        break
+        return -1
       }
     }
-    console.log(this.name)
   }
 
   private getOrCreateContext() {

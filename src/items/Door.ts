@@ -9,8 +9,4 @@ export default class Door extends Phaser.Physics.Arcade.Sprite {
     this.anims.play('door_open')
     this.body.checkCollision.none = true
   }
-
-  public getName() {
-    return this.name
-  }
 }
